@@ -6,7 +6,7 @@ export const fetchUsers = async (q,page) => {
     //how many users will be shown on page for pagination
     const ITEM_PER_PAGE = 2;
     try {
-        connectToDB();
+        await connectToDB();
         const count = await User.find({username:{$regex:regex}}).count();
         const users = await User.find({username:{$regex:regex}}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page-1));
         return {users,count};
@@ -20,7 +20,7 @@ export const fetchUsers = async (q,page) => {
 export const fetchUser = async (id) => {
 
     try {
-         connectToDB();
+         await connectToDB();
         const user = await User.findById(id)
         return user;
     }catch (err) {
@@ -35,7 +35,7 @@ export const fetchProducts = async (q,page) => {
     //how many products will be shown on page for pagination
     const ITEM_PER_PAGE = 2;
     try {
-         connectToDB();
+         await connectToDB();
         const count = await Product.find({title:{$regex:regex}}).count();
         const products = await Product.find({title:{$regex:regex}}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page-1));
         return {products,count};
