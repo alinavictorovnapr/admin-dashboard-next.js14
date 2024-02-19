@@ -42,14 +42,14 @@ export const updateUser = async (formData) => {
         Object.fromEntries(formData);
     try {
         await connectToDB();
-        //salt for hash password (security)
-        //const salt = await bcrypt.genSalt(10);
-        //const hashedPassword = await bcrypt.hash(password, salt);
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
         const updateFields = {
             id,
             username,
             email,
-            password,
+            password: hashedPassword,
             phone,
             address,
             isAdmin,
@@ -158,7 +158,7 @@ export const deleteProduct = async (formData) => {
 export const authenticate = async (prevState, formData) => {
     const {username, password} = Object.fromEntries(formData);
     try {
-        await signIn("credentials", { username, password });
+        await signIn("credentials", {username, password});
     } catch (err) {
         if (err.message.includes("CredentialsSignin")) {
             return "Wrong Credentials";
@@ -166,7 +166,7 @@ export const authenticate = async (prevState, formData) => {
         throw err;
     }
 };
-export const logOut =async () =>{
+export const logOut = async () => {
 
     await signOut();
 }
