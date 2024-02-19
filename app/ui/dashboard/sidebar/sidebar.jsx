@@ -78,6 +78,7 @@ const menuItems = [
 
 const Sidebar = async () => {
     const {user} = await auth();
+    debugger;
     console.log("name",user);
 
     return (

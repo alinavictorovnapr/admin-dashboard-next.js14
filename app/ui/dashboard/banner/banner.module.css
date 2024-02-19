@@ -1,0 +1,79 @@
+
+
+.banner {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.banner:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(20, 20, 35,0.6); /* Semi-transparent black */
+    z-index: 0; /* Place the overlay behind the content */
+}
+.bannerImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.bannerContent {
+    max-width: 600px;
+    z-index: 1;
+}
+
+ .title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+ .text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.loginButton {
+    width: 50%;
+    padding: 30px;
+    background-color: teal;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+    background-color: #0e4444;; /* Darker green */
+}
+.texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.number {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+.title{
+
+}
